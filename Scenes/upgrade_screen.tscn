@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://qkvfltww7fpd"]
 
-[ext_resource type="Script" uid="uid://bm8m8xp65hlpr" path="res://Scenes/upgrade_screen.gd" id="1_o5sws"]
+[ext_resource type="Script" uid="uid://bm8m8xp65hlpr" path="res://Scripts/upgrade_screen.gd" id="1_o5sws"]
 
 [node name="UpgradeScreen" type="CanvasLayer"]
 process_mode = 2

@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://hpfqupn0twtw"]
+
+[ext_resource type="Script" uid="uid://d3rht3gm5cvcs" path="res://Scripts/goobler.gd" id="1_8i4aq"]
+[ext_resource type="Texture2D" uid="uid://dutu507vtjqu2" path="res://Assets/Sprites/Monster_placeholder_spritesheet1.png" id="2_l77mo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcq3p"]
+atlas = ExtResource("2_l77mo")
+region = Rect2(276, 0, 63, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugnmk"]
+atlas = ExtResource("2_l77mo")
+region = Rect2(207, 0, 63, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n17qt"]
+atlas = ExtResource("2_l77mo")
+region = Rect2(0, 0, 63, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfstk"]
+atlas = ExtResource("2_l77mo")
+region = Rect2(69, 0, 63, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4danp"]
+atlas = ExtResource("2_l77mo")
+region = Rect2(138, 0, 63, 57)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h7ifl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcq3p")
+}],
+"loop": true,
+"name": &"BlueDefault",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugnmk")
+}],
+"loop": true,
+"name": &"GreenDefault",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n17qt")
+}],
+"loop": true,
+"name": &"OrangeDefault",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfstk")
+}],
+"loop": true,
+"name": &"RedDefault",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4danp")
+}],
+"loop": true,
+"name": &"YellowDefault",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_07r5j"]
+radius = 24.0208
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ytfrm"]
+radius = 31.0
+height = 62.0
+
+[node name="Goobler" type="CharacterBody2D"]
+script = ExtResource("1_8i4aq")
+
+[node name="MonsterSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_h7ifl")
+animation = &"GreenDefault"
+
+[node name="MainCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_07r5j")
+debug_color = Color(0.50912, 0.209145, 1, 0.42)
+
+[node name="HitArea" type="Area2D" parent="."]
+
+[node name="HitCollider" type="CollisionShape2D" parent="HitArea"]
+shape = SubResource("CapsuleShape2D_ytfrm")

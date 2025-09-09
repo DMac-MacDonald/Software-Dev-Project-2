@@ -37,7 +37,7 @@ tile_set = SubResource("TileSet_dw488")
 position = Vector2(589, 370)
 
 [node name="UpgradeTimerTemp" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 20.0
 autostart = true
 
 [node name="Goobler" parent="." instance=ExtResource("4_l4jyp")]

@@ -8,9 +8,9 @@ var ink_cost = 1
 var ink_regen = .2
 var damage = 2
 var fruit_health = 100
-var monster_health = 20
 var width = .5
-var monster_destination = Vector2(600,400)
+var goobler_destination = Vector2(600,400)
+var goobler_base_health = 100
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

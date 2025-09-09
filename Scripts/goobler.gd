@@ -2,24 +2,44 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
+var goobler_base_health = Global.goobler_base_health
+var goobler_health
+@onready var goobler_sprite: AnimatedSprite2D = $GooblerSprite
+@onready var health_bar: ProgressBar = $GooblerSprite/HealthBar
+@onready var hit_area: Area2D = $HitArea
 
-@onready var monster_sprite: AnimatedSprite2D = $MonsterSprite
 
-
-var destination = Global.monster_destination
+var destination = Global.goobler_destination
 var rng = RandomNumberGenerator.new()
+var goobler_type
 func _ready() -> void:
+	
 	var random = int(rng.randf_range(0, 4))
+	goobler_type = random
 	match random:
 		0:
-			monster_sprite.play("BlueDefault")
+			goobler_health = goobler_base_health + (goobler_base_health * .2)
+			goobler_sprite.play("BlueDefault")
 		1:
-			monster_sprite.play("RedDefault")
+			goobler_health = goobler_base_health + (goobler_base_health * 1)
+			goobler_sprite.play("RedDefault")
 		2:
-			monster_sprite.play("YellowDefault")
+			goobler_health = goobler_base_health + (goobler_base_health * -.3)
+			goobler_sprite.play("YellowDefault")
 		3:
-			monster_sprite.play("GreenDefault")
-		4:
-			monster_sprite.play("OrangeDefault")
+			goobler_health = goobler_base_health + (goobler_base_health * .1)
+			goobler_sprite.play("GreenDefault")
+		4:#Orange 
+			goobler_health = goobler_base_health + (goobler_base_health * 0)
+			goobler_sprite.play("OrangeDefault")
+	health_bar.max_value = goobler_health
 func _physics_process(delta: float) -> void:
+	health_bar.value = goobler_health
+	if goobler_health <= 0:
+		queue_free()
+	
 	position += position.direction_to(destination) * SPEED * delta
+
+
+func _on_hit_area_area_entered(area: Area2D) -> void:
+	goobler_health -= Global.damage

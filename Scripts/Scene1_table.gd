@@ -9,8 +9,11 @@ const UPGRADE = preload("res://Scenes/upgrade_screen.tscn")
 @onready var wave_manager_table: Node = $WaveManagerTable
 
 func _ready() -> void:
-	wave_manager_table.basic_wave(0,true,[],0,30,1)
+	wave_manager_table.basic_wave(0,true,[],0,60,7)
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("debug"):
+		var upgrade_screen = UPGRADE.instantiate()
+		add_child(upgrade_screen)
 	if marker.drawing:
 		var pixel = PIXEL.instantiate()
 		add_child(pixel)

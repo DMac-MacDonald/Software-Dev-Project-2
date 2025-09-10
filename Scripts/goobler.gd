@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 400.0
+var speed = Global.goobler_speed
 var goobler_base_health = Global.goobler_base_health
 var goobler_health
 @onready var goobler_sprite: AnimatedSprite2D = $GooblerSprite

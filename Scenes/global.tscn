@@ -5,3 +5,5 @@
 [node name="Global" type="Node"]
 process_mode = 3
 script = ExtResource("1_pk6hq")
+
+[connection signal="wave_start" from="." to="." method="_on_wave_start"]

@@ -16,6 +16,7 @@ func basic_wave(enemy_num:int, rand:bool, types:Array, condition:int, time:int, 
 	match condition:
 		0:#Walnut:Survival
 			survival_timer.start()
+			Global.wave_start.emit()
 			if rand:
 				while survival_timer.time_left > 0:
 					spawn_timer.start()
@@ -32,13 +33,15 @@ func basic_wave(enemy_num:int, rand:bool, types:Array, condition:int, time:int, 
 					goobler_spawner.spawn_goobler(rand,types[0],1)
 					goobler_spawner.randomize_pos()
 					++i
-			print("you won!")
+			Global.wave_end.emit()
+			print("Wave Survived")
 		1:#Squash:Defeat all
 			pass
 		2:#Dragonfruit:Boss
 			pass
 
-#func _on_spawn_timer_temp_timeout() -> void:
-#	var random = rng.randf_range(0,4)
-#	goobler_spawner.randomize_pos()
-#	goobler_spawner.spawn_goobler(random)
+
+func _on_wave_end() -> void:
+	Global.fruit_health = Global.fruit_max_health
+	Global.ink = Global.max_ink
+	

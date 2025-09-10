@@ -5,7 +5,11 @@ const UPGRADE = preload("res://Scenes/upgrade_screen.tscn")
 @onready var marker: CharacterBody2D = $Marker
 @onready var draw_point: Marker2D = $Marker/DrawPoint
 @onready var upgrade_timer_temp: Timer = $UpgradeTimerTemp
+@onready var goobler_spawner: Node2D = $GooblerSpawner
+@onready var wave_manager_table: Node = $WaveManagerTable
 
+func _ready() -> void:
+	wave_manager_table.basic_wave(0,true,[],0,30,1)
 func _process(delta: float) -> void:
 	if marker.drawing:
 		var pixel = PIXEL.instantiate()

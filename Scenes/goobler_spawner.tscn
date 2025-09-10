@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://hf01vyscpwml"]
+
+[ext_resource type="Script" uid="uid://ciqev67ce3jeg" path="res://Scripts/goobler_spawner.gd" id="1_781ow"]
+
+[node name="GooblerSpawner" type="Node2D"]
+script = ExtResource("1_781ow")

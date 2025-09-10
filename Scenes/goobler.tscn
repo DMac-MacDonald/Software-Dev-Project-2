@@ -93,7 +93,7 @@ script = ExtResource("1_8i4aq")
 [node name="GooblerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_h7ifl")
-animation = &"BlueDefault"
+animation = &"YellowDefault"
 
 [node name="HealthBar" type="ProgressBar" parent="GooblerSprite"]
 custom_minimum_size = Vector2(64, 3)

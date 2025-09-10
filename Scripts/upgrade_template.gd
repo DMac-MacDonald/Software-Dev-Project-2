@@ -19,9 +19,9 @@ func _ready() -> void:
 		0:#++width
 			upgrade_picture.texture = preload("res://Assets/Sprites/Line_Width_Up1.png")
 		1:#++damage
-			pass
+			upgrade_picture.texture = preload("res://Assets/Sprites/Damage_Up1.png")
 		2:#--enemy health
-			pass
+			upgrade_picture.texture = preload("res://Assets/Sprites/Goobler_Health_Down1.png")
 		3:#++fruit health
 			pass
 		4:#++ink charge
@@ -35,9 +35,11 @@ func _on_upgrade_button_pressed() -> void:
 			Global.width += (Global.width * .2)
 			print(Global.width)
 		1:#++damage
-			pass
+			Global.damage += (Global.damage *.05)
+			print(Global.damage)
 		2:#--enemy health
-			pass
+			Global.goobler_base_health -= (Global.goobler_base_health *.05)
+			print(Global.goobler_base_health)
 		3:#++fruit health
 			pass
 		4:#++ink charge

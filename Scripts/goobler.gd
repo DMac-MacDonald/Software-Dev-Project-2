@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 100.0
-const JUMP_VELOCITY = -400.0
+var speed = 400.0
 var goobler_base_health = Global.goobler_base_health
 var goobler_health
 @onready var goobler_sprite: AnimatedSprite2D = $GooblerSprite
@@ -14,9 +13,9 @@ var rng = RandomNumberGenerator.new()
 var goobler_type
 func _ready() -> void:
 	
-	var random = int(rng.randf_range(0, 4))
-	goobler_type = random
-	match random:
+	#var random = int(rng.randf_range(0, 4))
+	#goobler_type = random
+	match goobler_type:
 		0:
 			goobler_health = goobler_base_health + (goobler_base_health * .2)
 			goobler_sprite.play("BlueDefault")
@@ -34,11 +33,12 @@ func _ready() -> void:
 			goobler_sprite.play("OrangeDefault")
 	health_bar.max_value = goobler_health
 func _physics_process(delta: float) -> void:
+	
 	health_bar.value = goobler_health
 	if goobler_health <= 0:
 		queue_free()
 	
-	position += position.direction_to(destination) * SPEED * delta
+	position += position.direction_to(destination) * speed * delta
 
 
 func _on_hit_area_area_entered(area: Area2D) -> void:

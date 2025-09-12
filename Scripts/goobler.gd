@@ -23,7 +23,7 @@ func _ready() -> void:
 			goobler_health = goobler_base_health + (goobler_base_health * 1)
 			goobler_sprite.play("RedDefault")
 		2:
-			goobler_health = goobler_base_health + (goobler_base_health * -.3)
+			goobler_health = goobler_base_health + (goobler_base_health * -.2)
 			goobler_sprite.play("YellowDefault")
 		3:
 			goobler_health = goobler_base_health + (goobler_base_health * .1)
@@ -36,10 +36,12 @@ func _physics_process(delta: float) -> void:
 	
 	health_bar.value = goobler_health
 	if goobler_health <= 0:
-		queue_free()
+		die()
 	
 	position += position.direction_to(destination) * speed * delta
 
-
+func die():
+	Global.goobler_die.emit()
+	queue_free()
 func _on_hit_area_area_entered(area: Area2D) -> void:
 	goobler_health -= Global.damage

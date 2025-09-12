@@ -18,7 +18,7 @@ z_index = 1
 shape = SubResource("CircleShape2D_t6yr1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.754444, 0.754444)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_o20pv")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

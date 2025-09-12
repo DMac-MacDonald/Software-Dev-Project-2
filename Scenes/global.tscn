@@ -6,4 +6,4 @@
 process_mode = 3
 script = ExtResource("1_pk6hq")
 
-[connection signal="wave_start" from="." to="." method="_on_wave_start"]
+[connection signal="goobler_die" from="." to="." method="_on_goobler_die"]

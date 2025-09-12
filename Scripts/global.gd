@@ -4,18 +4,20 @@ var ink = 100.0
 var charging: bool = true
 var paused: bool = false
 var upgrade_chosen = false
-var ink_cost = .7
-var ink_regen = .23
-var max_ink = 100
-var damage = 5
-var fruit_max_health = 100
-var fruit_health = 100
-var width = .5
-var goobler_destination = Vector2(1349.0,1191.0)
-var goobler_base_health = 100
-var goobler_speed = 180
-signal wave_end
-signal wave_start
+@export var ink_cost = .7
+@export var ink_regen = .23
+@export var max_ink = 100
+@export var damage = 5
+@export var fruit_max_health = 100
+@export var fruit_health = 100
+@export var width = .5
+@export var goobler_destination = Vector2(1349.0,1191.0)
+@export var goobler_base_health = 100
+@export var goobler_speed = 120
+var wave_time: int
+var enemy_num
+var squash_wave: bool
+signal goobler_die
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -30,6 +32,6 @@ func _process(delta: float) -> void:
 	else:
 		get_tree().paused = false
 
-
-func _on_wave_start() -> void:
-	print("wave start signal")
+func _on_goobler_die() -> void:
+	if squash_wave:
+		enemy_num -= 1

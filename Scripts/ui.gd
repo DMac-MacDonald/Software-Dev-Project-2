@@ -7,6 +7,8 @@ extends CanvasLayer
 @onready var fruit_health_label: Label = $Control/MarginContainer/VBoxContainer/FruitHealthBar/FruitHealthLabel
 @onready var ink_label: Label = $Control/MarginContainer/VBoxContainer/InkMeter/InkLabel
 @onready var wave_animations: AnimationPlayer = $WaveAnimations
+@onready var enemy_left_label: Label = $Control/MarginContainer/WaveInfoContainer/EnemyLeftLabel
+@onready var time_left_label: Label = $Control/MarginContainer/WaveInfoContainer/TimeLeftLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,7 +16,8 @@ func _ready() -> void:
 	fruit_health_bar.value = 100.0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
+	time_left_label.text ="Time Left In Wave:" + str(Global.wave_time)
+	enemy_left_label.text = "Enemies Left In Wave:" + str(Global.enemy_num)
 	if Global.ink <= 0:
 		animation_player.play("InkEmpty")
 	ink_meter.max_value = Global.max_ink
@@ -26,7 +29,6 @@ func _process(delta: float) -> void:
 		ink_meter.value = Global.ink
 		ink_label.text = "  Ink:" + str(int(Global.ink))
 	
-	Global.wave_start.connect(wave_start_anim)
 	
 	fruit_health_bar.max_value = Global.fruit_max_health
 	if Global.fruit_health < Global.fruit_max_health:

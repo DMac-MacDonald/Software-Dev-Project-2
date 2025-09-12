@@ -7,9 +7,14 @@ const UPGRADE = preload("res://Scenes/upgrade_screen.tscn")
 @onready var upgrade_timer_temp: Timer = $UpgradeTimerTemp
 @onready var goobler_spawner: Node2D = $GooblerSpawner
 @onready var wave_manager_table: Node = $WaveManagerTable
-
+@onready var animations: AnimationPlayer = $Animations
+@onready var wave_label: Label = $WaveUi/WaveLabel
 func _ready() -> void:
-	wave_manager_table.basic_wave(0,true,[],0,60,7)
+	wave_manager_table.basic_wave(0,true,[],0,5,1)
+	await wave_manager_table.wave_end
+	await %WaveWaitTimer.timeout
+	wave_manager_table.basic_wave(15,true,[],1,0,2)
+	await wave_manager_table.wave_end
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("debug"):
 		var upgrade_screen = UPGRADE.instantiate()
@@ -25,3 +30,17 @@ func _process(delta: float) -> void:
 func _on_upgrade_timer_temp_timeout() -> void:
 	var upgrade_screen = UPGRADE.instantiate()
 	add_child(upgrade_screen)
+
+
+func _on_wave_manager_table_wave_start() -> void:
+	animations.play("WaveStart")
+
+
+func _on_wave_manager_table_wave_end() -> void:
+	animations.play("WaveEnd")
+	clear_table()
+	%WaveWaitTimer.start()
+
+func clear_table():
+	for enemy in get_tree().get_nodes_in_group("enemies"):
+		enemy.die()

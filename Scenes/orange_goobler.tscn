@@ -1,54 +1,54 @@
-[gd_scene load_steps=19 format=3 uid="uid://hpfqupn0twtw"]
+[gd_scene load_steps=19 format=3 uid="uid://wgtmp8b5ui6o"]
 
-[ext_resource type="Script" uid="uid://d3rht3gm5cvcs" path="res://Scripts/goobler.gd" id="1_8i4aq"]
-[ext_resource type="Texture2D" uid="uid://dlatquhaypwjk" path="res://Assets/Sprites/goobler-orange.png" id="3_l77mo"]
+[ext_resource type="Script" uid="uid://dv1jp0m5g6ytw" path="res://Scripts/orange_goobler.gd" id="1_a3n3l"]
+[ext_resource type="Texture2D" uid="uid://dlatquhaypwjk" path="res://Assets/Sprites/goobler-orange.png" id="3_gfpt3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ytfrm"]
-atlas = ExtResource("3_l77mo")
+atlas = ExtResource("3_gfpt3")
 region = Rect2(0, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vjld0"]
-atlas = ExtResource("3_l77mo")
+atlas = ExtResource("3_gfpt3")
 region = Rect2(80, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6dewr"]
-atlas = ExtResource("3_l77mo")
+atlas = ExtResource("3_gfpt3")
 region = Rect2(160, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_01una"]
-atlas = ExtResource("3_l77mo")
+atlas = ExtResource("3_gfpt3")
 region = Rect2(240, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nwn3h"]
-atlas = ExtResource("3_l77mo")
+atlas = ExtResource("3_gfpt3")
 region = Rect2(320, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r2ks0"]
-atlas = ExtResource("3_l77mo")
+atlas = ExtResource("3_gfpt3")
 region = Rect2(400, 0, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uerp5"]
-atlas = ExtResource("3_l77mo")
+atlas = ExtResource("3_gfpt3")
 region = Rect2(0, 64, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pr68q"]
-atlas = ExtResource("3_l77mo")
+atlas = ExtResource("3_gfpt3")
 region = Rect2(80, 64, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jm5d1"]
-atlas = ExtResource("3_l77mo")
+atlas = ExtResource("3_gfpt3")
 region = Rect2(160, 64, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_83dvy"]
-atlas = ExtResource("3_l77mo")
+atlas = ExtResource("3_gfpt3")
 region = Rect2(240, 64, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dy0fg"]
-atlas = ExtResource("3_l77mo")
+atlas = ExtResource("3_gfpt3")
 region = Rect2(320, 64, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aut4o"]
-atlas = ExtResource("3_l77mo")
+atlas = ExtResource("3_gfpt3")
 region = Rect2(400, 64, 80, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h7ifl"]
@@ -114,16 +114,16 @@ radius = 24.0208
 radius = 31.0
 height = 62.0
 
-[node name="Goobler" type="CharacterBody2D" groups=["enemies"]]
+[node name="OrangeGoobler" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 2
 collision_mask = 3
-script = ExtResource("1_8i4aq")
+script = ExtResource("1_a3n3l")
 
 [node name="GooblerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_h7ifl")
 animation = &"OrangeDefault"
-frame_progress = 0.794809
+autoplay = "OrangeDefault"
 
 [node name="HealthBar" type="ProgressBar" parent="GooblerSprite"]
 custom_minimum_size = Vector2(64, 3)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://d033jpq4ud38y"]
+[gd_scene load_steps=16 format=4 uid="uid://d033jpq4ud38y"]
 
 [ext_resource type="Script" uid="uid://c1m6ok3ic8wxp" path="res://Scripts/Scene1_table.gd" id="1_aui6a"]
 [ext_resource type="Texture2D" uid="uid://b23dhmd77op17" path="res://Assets/tilesets/table_tileset1.png" id="2_fr8qw"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://hf01vyscpwml" path="res://Scenes/goobler_spawner.tscn" id="4_l4jyp"]
 [ext_resource type="Script" uid="uid://drn6ysnsx42ue" path="res://Scripts/wave_manager_table.gd" id="5_cwn6o"]
 [ext_resource type="PackedScene" uid="uid://bi4oul3cp5nh0" path="res://Scenes/fruit.tscn" id="7_cwn6o"]
+[ext_resource type="Script" uid="uid://cebo0jfj5t20b" path="res://Scenes/loading_animation.gd" id="8_ktx66"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yq6v8"]
 texture = ExtResource("2_fr8qw")
@@ -98,6 +99,30 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../LoadingAnimation/CanvasLayer/ColorRect:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../LoadingAnimation/CanvasLayer/ProgressBar:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_cwn6o"]
@@ -214,10 +239,10 @@ tracks/0/path = NodePath("../LoadingAnimation/CanvasLayer:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -230,6 +255,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 100.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../LoadingAnimation/CanvasLayer/ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.02, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../LoadingAnimation/CanvasLayer/ProgressBar:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.02),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q7pk6"]
@@ -262,6 +311,8 @@ autostart = true
 position = Vector2(592, 55)
 
 [node name="Animations" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+process_mode = 3
 root_node = NodePath("../WaveUi")
 libraries = {
 &"": SubResource("AnimationLibrary_q7pk6")
@@ -278,7 +329,8 @@ one_shot = true
 
 [node name="WaveWaitTimer" type="Timer" parent="WaveManagerTable"]
 unique_name_in_owner = true
-wait_time = 5.0
+wait_time = 2.0
+one_shot = true
 
 [node name="Fruit" parent="." instance=ExtResource("7_cwn6o")]
 position = Vector2(1349, 1190)
@@ -305,8 +357,10 @@ text = "Wave Start!"
 
 [node name="LoadingAnimation" type="Node" parent="."]
 process_mode = 3
+script = ExtResource("8_ktx66")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="LoadingAnimation"]
+process_mode = 3
 
 [node name="ColorRect" type="ColorRect" parent="LoadingAnimation/CanvasLayer"]
 anchors_preset = 15
@@ -316,9 +370,11 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ProgressBar" type="ProgressBar" parent="LoadingAnimation/CanvasLayer"]
+visible = false
 custom_minimum_size = Vector2(500, 50)
 anchors_preset = 8
 anchor_left = 0.5

@@ -10,10 +10,13 @@ const UPGRADE = preload("res://Scenes/upgrade_screen.tscn")
 @onready var animations: AnimationPlayer = $Animations
 @onready var wave_label: Label = $WaveUi/WaveLabel
 func _ready() -> void:
+	await animations.animation_finished
+	%WaveWaitTimer.start()
+	await %WaveWaitTimer.timeout
 	wave_manager_table.basic_wave(0,true,[],0,5,1)
 	await wave_manager_table.wave_end
 	await %WaveWaitTimer.timeout
-	wave_manager_table.basic_wave(15,true,[],1,0,2)
+	wave_manager_table.basic_wave(15,false,[0,1,1],1,0,2)
 	await wave_manager_table.wave_end
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("debug"):

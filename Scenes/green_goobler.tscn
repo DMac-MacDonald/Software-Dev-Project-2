@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://u3b3begc074"]
+
+[ext_resource type="Script" uid="uid://cj2lkgevm4our" path="res://Scripts/green_goobler.gd" id="1_1gldw"]
+[ext_resource type="Texture2D" uid="uid://dutu507vtjqu2" path="res://Assets/Sprites/Monster_placeholder_spritesheet1.png" id="2_1gldw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enquw"]
+atlas = ExtResource("2_1gldw")
+region = Rect2(207, 0, 63, 57)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xsifm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enquw")
+}],
+"loop": true,
+"name": &"GreenDefault",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x75ic"]
+bg_color = Color(0.739789, 1.93726e-06, 9.62615e-07, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_07r5j"]
+radius = 24.0208
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ytfrm"]
+radius = 31.0
+height = 62.0
+
+[node name="GreenGoobler" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_1gldw")
+
+[node name="GooblerSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_xsifm")
+animation = &"GreenDefault"
+
+[node name="HealthBar" type="ProgressBar" parent="GooblerSprite"]
+custom_minimum_size = Vector2(64, 3)
+offset_left = -31.0
+offset_top = -43.0
+offset_right = 33.0
+offset_bottom = -38.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_x75ic")
+value = 100.0
+show_percentage = false
+
+[node name="MainCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_07r5j")
+debug_color = Color(0.50912, 0.209145, 1, 0.42)
+
+[node name="HitArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="HitCollider" type="CollisionShape2D" parent="HitArea"]
+shape = SubResource("CapsuleShape2D_ytfrm")
+
+[connection signal="area_entered" from="HitArea" to="." method="_on_hit_area_area_entered"]

@@ -19,15 +19,17 @@ func _ready() -> void:
 		0:#++width
 			upgrade_picture.texture = preload("res://Assets/Sprites/Line_Width_Up1.png")
 		1:#++damage
-			pass
+			upgrade_picture.texture = preload("res://Assets/Sprites/Damage_Up1.png")
 		2:#--enemy health
-			pass
+			upgrade_picture.texture = preload("res://Assets/Sprites/Goobler_Health_Down1.png")
 		3:#++fruit health
 			pass
 		4:#++ink charge
 			upgrade_picture.texture = preload("res://Assets/Sprites/Ink_Charge_Up1.png")
 		5:#--ink cost
 			upgrade_picture.texture = preload("res://Assets/Sprites/Ink_Cost_Down1.png")
+		6:#++Max Ink
+			pass
 func _on_upgrade_button_pressed() -> void:
 	
 	match randomNum:
@@ -35,17 +37,21 @@ func _on_upgrade_button_pressed() -> void:
 			Global.width += (Global.width * .2)
 			print(Global.width)
 		1:#++damage
-			pass
+			Global.damage += (Global.damage *.05)
+			print(Global.damage)
 		2:#--enemy health
-			pass
+			Global.goobler_base_health -= (Global.goobler_base_health *.05)
+			print(Global.goobler_base_health)
 		3:#++fruit health
-			pass
+			Global.fruit_max_health += 10
 		4:#++ink charge
 			Global.ink_regen += (Global.ink_regen * .2)
 			print(Global.ink_regen)
 		5:#--ink cost
 			Global.ink_cost -= (Global.ink_regen * .2)
 			print(Global.ink_cost)
+		6:#++ink
+			Global.max_ink += 10
 	Global.upgrade_chosen = true
 	
 

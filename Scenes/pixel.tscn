@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://lxe4iknfsmd2" path="res://Scripts/pixel.gd" id="1_4kf34"]
 [ext_resource type="Texture2D" uid="uid://be11ovwcobffi" path="res://Assets/Sprites/draw ball1.png" id="1_t6ygl"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ogb43"]
-radius = 7.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_axlwg"]
 atlas = ExtResource("1_t6ygl")
 region = Rect2(0, 0, 16, 16)
@@ -27,19 +24,34 @@ animations = [{
 }]
 
 [sub_resource type="Animation" id="Animation_yovh2"]
-resource_name = "timer"
+resource_name = "die"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.133333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4vktg"]
 _data = {
-&"timer": SubResource("Animation_yovh2")
+&"die": SubResource("Animation_yovh2")
 }
 
-[node name="Pixel" type="Area2D"]
-script = ExtResource("1_4kf34")
+[sub_resource type="CircleShape2D" id="CircleShape2D_ogb43"]
+radius = 7.0
 
-[node name="LineCollider" type="CollisionShape2D" parent="."]
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_ogb43")
+[node name="Pixel" type="Area2D" groups=["Pixels"]]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("1_4kf34")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -53,7 +65,13 @@ libraries = {
 }
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.11
+wait_time = 10.0
 autostart = true
 
+[node name="LineCollider" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_ogb43")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

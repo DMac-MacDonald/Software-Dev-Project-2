@@ -1,7 +1,11 @@
 ++Width
 ++Damage
---Enemy Health
+--Goobler Health
 ++Fruit Health
 ++Ink Recharge
 --Ink Cost
 ++Max Ink
+++Marker Speed
+--Ink Cooldown
+--Goobler Speed
+--Goobler Damage

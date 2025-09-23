@@ -27,8 +27,8 @@ func _on_sfx_audio_slider_value_changed(value: float) -> void:
 
 func _on_apply_button_pressed() -> void:
 	Global.SettingsConfig.set_value("settings","master_volume",%MasterAudioSlider.value)
-	Global.SettingsConfig.set_value("settings","music_volume",%MasterAudioSlider.value)
-	Global.SettingsConfig.set_value("settings","sfx_volume",%MasterAudioSlider.value)
+	Global.SettingsConfig.set_value("settings","music_volume",%MusicAudioSlider.value)
+	Global.SettingsConfig.set_value("settings","sfx_volume",%SfxAudioSlider.value)
 	Global.SettingsConfig.save("res://Assets/Extra files/SettingsConfig.cfg")
 
 
@@ -45,3 +45,15 @@ func set_volume():
 	sfx_audio_label.text="Sfx: " + str(%SfxAudioSlider.value * 100) + "%"
 	bus_index = AudioServer.get_bus_index("Sfx")
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(%SfxAudioSlider.value))
+
+
+func _on_default_button_pressed() -> void:
+	Global.SettingsConfig.set_value("settings","master_volume",1)
+	%MasterAudioSlider.value = 1
+	Global.SettingsConfig.set_value("settings","music_volume",1)
+	%MusicAudioSlider.value = 1
+	Global.SettingsConfig.set_value("settings","sfx_volume",1)
+	%SfxAudioSlider.value = 1
+	set_volume()
+	Global.SettingsConfig.save("res://Assets/Extra files/SettingsConfig.cfg")
+	

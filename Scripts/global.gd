@@ -16,7 +16,7 @@ var upgrade_chosen = false
 @export var goobler_speed = 120
 
 var wave_time: int
-var enemy_num
+var enemy_num = 0
 var squash_wave: bool
 var SettingsConfig = ConfigFile.new()
 signal goobler_die

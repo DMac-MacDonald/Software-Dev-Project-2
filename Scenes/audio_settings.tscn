@@ -66,7 +66,13 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "Apply?"
 
+[node name="DefaultButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Set To default"
+
 [connection signal="value_changed" from="VBoxContainer/MasterAudioSlider" to="." method="_on_master_audio_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/MusicAudioSlider" to="." method="_on_music_audio_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/SfxAudioSlider" to="." method="_on_sfx_audio_slider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/ApplyButton" to="." method="_on_apply_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/DefaultButton" to="." method="_on_default_button_pressed"]

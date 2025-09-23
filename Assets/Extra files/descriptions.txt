@@ -5,3 +5,7 @@ Increase fruit health by (tbd) points
 Increase Ink recharge by (tbd)%
 Decrease Ink cost by (tbd)%
 Increase max ink by (tbd) points
+Increase Marker Speed
+Decrease Ink Cooldown
+Decrease Goobler Speed
+Decrease Goobler Damage

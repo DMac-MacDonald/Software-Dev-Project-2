@@ -56,13 +56,13 @@ func _on_upgrade_button_pressed() -> void:
 	
 
 func load_descriptions():
-	var file = FileAccess.open("res://Assets/text files/descriptions.txt", FileAccess.READ)
+	var file = FileAccess.open("res://Assets/Extra files/descriptions.txt", FileAccess.READ)
 	while not file.eof_reached(): # iterate through all lines until the end of file is reached
 		var line = file.get_line()
 		descriptions.append(line)
 
 func load_names():
-	var file = FileAccess.open("res://Assets/text files/names.txt", FileAccess.READ)
+	var file = FileAccess.open("res://Assets/Extra files/names.txt", FileAccess.READ)
 	while not file.eof_reached(): # iterate through all lines until the end of file is reached
 		var line = file.get_line()
 		names.append(line)

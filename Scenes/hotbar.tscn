@@ -1,21 +1,23 @@
 [gd_scene load_steps=2 format=3 uid="uid://cy7gbbq48b2qx"]
 
-[ext_resource type="Texture2D" uid="uid://be11ovwcobffi" path="res://Assets/Sprites/draw ball1.png" id="1_oais3"]
+[ext_resource type="Script" uid="uid://4rouliqm5d72" path="res://Scenes/hotbar.gd" id="1_oais3"]
 
 [node name="Hotbar" type="MarginContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_oais3")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+[node name="HotbarSquare1" type="ColorRect" parent="HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/ColorRect"]
-texture_filter = 3
+[node name="Hotbarcolor" type="ColorRect" parent="HBoxContainer/HotbarSquare1"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -28,4 +30,109 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_oais3")
+color = Color(0.303233, 0.303233, 0.303233, 1)
+
+[node name="HotbarSquare2" type="ColorRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Hotbarcolor" type="ColorRect" parent="HBoxContainer/HotbarSquare2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.582511, 0, 0.0983328, 1)
+
+[node name="HotbarSquare3" type="ColorRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Hotbarcolor" type="ColorRect" parent="HBoxContainer/HotbarSquare3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.26233, 0.0429701, 0.8114, 1)
+
+[node name="HotbarSquare4" type="ColorRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Hotbarcolor" type="ColorRect" parent="HBoxContainer/HotbarSquare4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0457527, 0.371314, 1.92523e-07, 1)
+
+[node name="HotbarSquare5" type="ColorRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Hotbarcolor" type="ColorRect" parent="HBoxContainer/HotbarSquare5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.54317, 0.648268, 0.127359, 1)
+
+[node name="HotbarSquare6" type="ColorRect" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Hotbarcolor" type="ColorRect" parent="HBoxContainer/HotbarSquare6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.460647, 0.236227, 0, 1)

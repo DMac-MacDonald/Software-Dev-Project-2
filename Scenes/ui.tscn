@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1b7bnitcp3qy"]
+[gd_scene load_steps=9 format=3 uid="uid://d1b7bnitcp3qy"]
 
 [ext_resource type="Script" uid="uid://elokxwmgsl0e" path="res://Scripts/ui.gd" id="1_suuwg"]
+[ext_resource type="PackedScene" uid="uid://cy7gbbq48b2qx" path="res://Scenes/hotbar.tscn" id="2_qdvrb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxero"]
 bg_color = Color(0.423651, 0.423651, 0.423651, 1)
@@ -167,5 +168,18 @@ text = "Time Left In Wave: 0"
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Enemies Left In Wave: 0"
+
+[node name="Hotbar" parent="." instance=ExtResource("2_qdvrb")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -70.0
+offset_right = 160.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [connection signal="timeout" from="Control/MarginContainer/VBoxContainer/InkMeter/AnimationPlayer/ChargeTimer" to="." method="_on_charge_timer_timeout"]

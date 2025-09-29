@@ -1,5 +1,6 @@
 extends Node2D
 
+const PAUSE = preload("res://Scenes/pause_menu.tscn")
 const PIXEL = preload("res://Scenes/pixel.tscn")
 const UPGRADE = preload("res://Scenes/upgrade_screen.tscn")
 @onready var marker: CharacterBody2D = $Marker
@@ -19,6 +20,10 @@ func _ready() -> void:
 	wave_manager_table.basic_wave(15,false,[0,1,1],1,0,4)
 	await wave_manager_table.wave_end
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		var pause_menu = PAUSE.instantiate()
+		add_child(pause_menu)
+		Global.paused = true
 	if Input.is_action_just_pressed("debug"):
 		var upgrade_screen = UPGRADE.instantiate()
 		add_child(upgrade_screen)

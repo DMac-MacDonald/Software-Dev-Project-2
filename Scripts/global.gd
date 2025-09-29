@@ -14,9 +14,11 @@ var upgrade_chosen = false
 @export var goobler_destination = Vector2(1349.0,1191.0)
 @export var goobler_base_health = 100
 @export var goobler_speed = 120
+
 var wave_time: int
-var enemy_num
+var enemy_num = 0
 var squash_wave: bool
+var SettingsConfig = ConfigFile.new()
 signal goobler_die
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

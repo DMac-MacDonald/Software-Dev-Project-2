@@ -22,6 +22,7 @@ theme_override_font_sizes/font_size = 20
 text = "Master: 100%"
 
 [node name="MasterAudioSlider" type="HSlider" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
 step = 0.005
@@ -36,6 +37,7 @@ theme_override_font_sizes/font_size = 20
 text = "Music: 100%"
 
 [node name="MusicAudioSlider" type="HSlider" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
 step = 0.005
@@ -50,6 +52,7 @@ theme_override_font_sizes/font_size = 20
 text = "Sfx: 100%"
 
 [node name="SfxAudioSlider" type="HSlider" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
 step = 0.005
@@ -57,6 +60,19 @@ value = 1.0
 tick_count = 10
 ticks_on_borders = true
 
+[node name="ApplyButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Apply?"
+
+[node name="DefaultButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Set To default"
+
 [connection signal="value_changed" from="VBoxContainer/MasterAudioSlider" to="." method="_on_master_audio_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/MusicAudioSlider" to="." method="_on_music_audio_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/SfxAudioSlider" to="." method="_on_sfx_audio_slider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/ApplyButton" to="." method="_on_apply_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/DefaultButton" to="." method="_on_default_button_pressed"]

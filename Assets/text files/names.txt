@@ -1,7 +1,0 @@
-++Width
-++Damage
---Enemy Health
-++Fruit Health
-++Ink Recharge
---Ink Cost
-++Max Ink

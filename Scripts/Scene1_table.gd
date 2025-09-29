@@ -27,8 +27,10 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("debug"):
 		var upgrade_screen = UPGRADE.instantiate()
 		add_child(upgrade_screen)
+		
 	if marker.drawing:
 		var pixel = PIXEL.instantiate()
+		pixel.set_color(Global.current_pix_color)
 		add_child(pixel)
 		if Global.ink > 0:
 			Global.ink -= Global.ink_cost

@@ -41,7 +41,20 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	move_and_slide()
-	
+	#change pixel color
+	if Input.is_action_just_pressed("pixel_1"):
+		Global.current_pix_color = "default"
+	if Input.is_action_just_pressed("pixel_2"):
+		Global.current_pix_color = "red"
+	if Input.is_action_just_pressed("pixel_3"):
+		Global.current_pix_color = "blue"
+	if Input.is_action_just_pressed("pixel_4"):
+		Global.current_pix_color = "green"
+	if Input.is_action_just_pressed("pixel_5"):
+		Global.current_pix_color = "yellow"
+	if Input.is_action_just_pressed("pixel_6"):
+		Global.current_pix_color = "brown"
+	#drawing
 	if Input.is_action_pressed("draw") and Global.ink > 0:
 		drawing = true
 	else:

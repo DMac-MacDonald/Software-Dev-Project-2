@@ -38,6 +38,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 
+[node name="GooblerpediaButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Gooblerpedia"
+
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
 anchors_preset = 15
@@ -51,3 +56,4 @@ color = Color(0, 0, 0, 0.364706)
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GooblerpediaButton" to="." method="_on_gooblerpedia_button_pressed"]

@@ -3,6 +3,7 @@ extends Control
 @onready var options_button: Button = $ButtonContainers/OptionsButton
 @onready var quit_button: Button = $ButtonContainers/QuitButton
 const OPTIONS = preload("res://Scenes/options_menu.tscn")
+const GOOB = preload("res://Scenes/gooblerpedia.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	start_button.grab_focus()

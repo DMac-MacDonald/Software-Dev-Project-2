@@ -14,6 +14,7 @@ var upgrade_chosen = false
 @export var goobler_destination = Vector2(1349.0,1191.0)
 @export var goobler_base_health = 100
 @export var goobler_speed = 120
+@export var current_pix_color = "default"
 
 var wave_time: int
 var enemy_num = 0

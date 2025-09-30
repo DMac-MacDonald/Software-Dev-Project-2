@@ -19,4 +19,17 @@ func die():
 	Global.goobler_die.emit()
 	queue_free()
 func _on_hit_area_area_entered(area: Area2D) -> void:
-	goobler_health -= Global.damage
+	match area.indv_color:
+		"default":
+			goobler_health -= Global.damage
+		"blue":
+			goobler_health -= Global.damage
+		"red":
+			goobler_health -= Global.damage
+		"yellow":
+			goobler_health -= Global.damage
+		"green":
+			goobler_health -= Global.damage
+		"brown":
+			goobler_health -= (Global.damage + (Global.damage * -.3))
+	

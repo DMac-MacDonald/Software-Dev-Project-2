@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://hf01vyscpwml" path="res://Scenes/goobler_spawner.tscn" id="4_l4jyp"]
 [ext_resource type="Script" uid="uid://drn6ysnsx42ue" path="res://Scripts/wave_manager_table.gd" id="5_cwn6o"]
 [ext_resource type="PackedScene" uid="uid://bi4oul3cp5nh0" path="res://Scenes/fruit.tscn" id="7_cwn6o"]
-[ext_resource type="Script" uid="uid://cebo0jfj5t20b" path="res://Scenes/loading_animation.gd" id="8_ktx66"]
+[ext_resource type="Script" uid="uid://cebo0jfj5t20b" path="res://loading_animation.gd" id="8_ktx66"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yq6v8"]
 texture = ExtResource("2_fr8qw")

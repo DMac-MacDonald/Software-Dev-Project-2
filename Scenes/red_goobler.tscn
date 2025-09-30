@@ -1,21 +1,98 @@
-[gd_scene load_steps=8 format=3 uid="uid://c06sek15vix25"]
+[gd_scene load_steps=19 format=3 uid="uid://c06sek15vix25"]
 
 [ext_resource type="Script" uid="uid://d25a84yfdwr5b" path="res://Scripts/red_goobler.gd" id="1_7vww0"]
-[ext_resource type="Texture2D" uid="uid://dutu507vtjqu2" path="res://Assets/Sprites/Monster_placeholder_spritesheet1.png" id="2_7vww0"]
+[ext_resource type="Texture2D" uid="uid://dgx8egmnux3ka" path="res://Assets/Sprites/goobler-red.png" id="2_7vww0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i4wvy"]
 atlas = ExtResource("2_7vww0")
-region = Rect2(69, 0, 63, 57)
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh7xv"]
+atlas = ExtResource("2_7vww0")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fops"]
+atlas = ExtResource("2_7vww0")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvtb7"]
+atlas = ExtResource("2_7vww0")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qv1gt"]
+atlas = ExtResource("2_7vww0")
+region = Rect2(0, 64, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgydi"]
+atlas = ExtResource("2_7vww0")
+region = Rect2(80, 64, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qkyq"]
+atlas = ExtResource("2_7vww0")
+region = Rect2(160, 64, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3e5a"]
+atlas = ExtResource("2_7vww0")
+region = Rect2(240, 64, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfiuy"]
+atlas = ExtResource("2_7vww0")
+region = Rect2(0, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkmse"]
+atlas = ExtResource("2_7vww0")
+region = Rect2(80, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esw0l"]
+atlas = ExtResource("2_7vww0")
+region = Rect2(160, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5cqj"]
+atlas = ExtResource("2_7vww0")
+region = Rect2(240, 128, 80, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h7ifl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i4wvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nh7xv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fops")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvtb7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qv1gt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgydi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qkyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3e5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfiuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkmse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esw0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5cqj")
 }],
 "loop": true,
 "name": &"RedDefault",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8i4aq"]
@@ -46,6 +123,8 @@ script = ExtResource("1_7vww0")
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_h7ifl")
 animation = &"RedDefault"
+autoplay = "RedDefault"
+frame_progress = 0.629215
 
 [node name="HealthBar" type="ProgressBar" parent="GooblerSprite"]
 custom_minimum_size = Vector2(64, 3)

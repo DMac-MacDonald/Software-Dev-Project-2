@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cy7gbbq48b2qx"]
 
-[ext_resource type="Script" uid="uid://4rouliqm5d72" path="res://Scenes/hotbar.gd" id="1_oais3"]
+[ext_resource type="Script" uid="uid://4rouliqm5d72" path="res://hotbar.gd" id="1_oais3"]
 
 [node name="Hotbar" type="MarginContainer"]
 offset_right = 40.0

@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+var speed = 300.0
 const ZOOM_RATE = .1
 
 
@@ -11,7 +10,7 @@ const ZOOM_RATE = .1
 var is_moving : bool = false
 var drawing: bool = false
 func _physics_process(delta: float) -> void:
-	
+	speed = Global.marker_speed
 	#check if player is moving
 	if velocity.x > 0 or velocity.y > 0:
 		is_moving = true
@@ -30,16 +29,16 @@ func _physics_process(delta: float) -> void:
 	#move left and right
 	var directionX := Input.get_axis("left", "right")
 	if directionX:
-		velocity.x = directionX * SPEED
+		velocity.x = directionX * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 	
 	#move up and down
 	var directionY := Input.get_axis("up", "down")
 	if directionY:
-		velocity.y = directionY * SPEED
+		velocity.y = directionY * speed
 	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		velocity.y = move_toward(velocity.y, 0, speed)
 	move_and_slide()
 	#change pixel color
 	if Input.is_action_just_pressed("pixel_1"):

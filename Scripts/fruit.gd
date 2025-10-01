@@ -8,5 +8,5 @@ func _process(delta: float) -> void:
 		Global.fruit_health = int(Global.fruit_max_health)
 
 func _on_area_entered(area: Area2D) -> void:
-	Global.fruit_health -= 20
+	Global.fruit_health -= Global.goobler_damage
 	

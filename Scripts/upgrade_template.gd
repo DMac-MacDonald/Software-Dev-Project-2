@@ -23,13 +23,22 @@ func _ready() -> void:
 		2:#--enemy health
 			upgrade_picture.texture = preload("res://Assets/Sprites/Goobler_Health_Down1.png")
 		3:#++fruit health
-			pass
+			upgrade_picture.texture = preload("res://Assets/Sprites/fruit_health_Up11.png")
 		4:#++ink charge
 			upgrade_picture.texture = preload("res://Assets/Sprites/Ink_Charge_Up1.png")
 		5:#--ink cost
 			upgrade_picture.texture = preload("res://Assets/Sprites/Ink_Cost_Down1.png")
 		6:#++Max Ink
-			pass
+			upgrade_picture.texture = preload("res://Assets/Sprites/max_ink_Up11.png")
+		7:
+			upgrade_picture.texture = preload("res://Assets/Sprites/marker_speed_Up11.png")
+		8:
+			upgrade_picture.texture = preload("res://Assets/Sprites/Ink_cooldown_Down11.png")
+		9:
+			upgrade_picture.texture = preload("res://Assets/Sprites/goobler_speed_Down11.png")
+		10:
+			upgrade_picture.texture = preload("res://Assets/Sprites/goobler_damage_Down11.png")
+		
 func _on_upgrade_button_pressed() -> void:
 	
 	match randomNum:
@@ -44,6 +53,7 @@ func _on_upgrade_button_pressed() -> void:
 			print(Global.goobler_base_health)
 		3:#++fruit health
 			Global.fruit_max_health += 10
+			print(Global.fruit_max_health)
 		4:#++ink charge
 			Global.ink_regen += (Global.ink_regen * .2)
 			print(Global.ink_regen)
@@ -52,6 +62,19 @@ func _on_upgrade_button_pressed() -> void:
 			print(Global.ink_cost)
 		6:#++ink
 			Global.max_ink += 10
+			print(Global.max_ink)
+		7:#++Marker Speed
+			Global.marker_speed += (Global.marker_speed * .1)
+			print(Global.marker_speed)
+		8:#--Ink Cooldown
+			Global.ink_cooldown -= (Global.ink_cooldown * .1)
+			print(Global.ink_cooldown)
+		9:#--Goobler Speed
+			Global.goobler_speed += (Global.goobler_speed * .2)
+			print(Global.goobler_speed)
+		10:#--Goobler Damage
+			Global.goobler_damage -= (Global.goobler_damage *.1)
+			print(Global.goobler_damage)
 	Global.upgrade_chosen = true
 	
 

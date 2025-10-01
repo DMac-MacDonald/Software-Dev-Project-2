@@ -16,6 +16,7 @@ func _ready() -> void:
 	fruit_health_bar.value = 100.0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	charge_timer.wait_time = Global.ink_cooldown
 	time_left_label.text ="Time Left In Wave:" + str(Global.wave_time)
 	enemy_left_label.text = "Enemies Left In Wave:" + str(Global.enemy_num)
 	if Global.ink <= 0:

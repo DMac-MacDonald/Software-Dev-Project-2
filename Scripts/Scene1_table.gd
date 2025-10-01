@@ -20,6 +20,7 @@ func _ready() -> void:
 	wave_manager_table.basic_wave(15,true,[],1,0,4)
 	await wave_manager_table.wave_end
 func _process(delta: float) -> void:
+	%SubLabel.text = "Wave " + str(Global.wave_num) + " " + Global.wave_type
 	if Input.is_action_just_pressed("pause"):
 		var pause_menu = PAUSE.instantiate()
 		add_child(pause_menu)

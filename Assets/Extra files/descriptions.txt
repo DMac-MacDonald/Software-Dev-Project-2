@@ -1,10 +1,10 @@
-Increase line width by (tbd)%
-Increase damage by (tbd)%
-Decrease max enemy health by (tbd) points
-Increase fruit health by (tbd) points
-Increase Ink recharge by (tbd)%
-Decrease Ink cost by (tbd)%
-Increase max ink by (tbd) points
+Increase line width
+Increase damage
+Decrease max enemy health
+Increase fruit health
+Increase Ink recharge
+Decrease Ink cost
+Increase max ink
 Increase Marker Speed
 Decrease Ink Cooldown
 Decrease Goobler Speed

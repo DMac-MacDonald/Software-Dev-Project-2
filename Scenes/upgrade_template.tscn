@@ -19,6 +19,7 @@ corner_radius_bottom_left = 15
 [node name="UpgradeTemplate" type="MarginContainer"]
 z_index = 1
 y_sort_enabled = true
+texture_filter = 3
 custom_minimum_size = Vector2(300, 450)
 offset_right = 40.0
 offset_bottom = 40.0

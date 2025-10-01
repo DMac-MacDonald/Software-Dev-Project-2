@@ -18,8 +18,11 @@ func basic_wave(enemy_num:int, rand:bool, types:Array, condition:int, time:int, 
 	Global.enemy_num = enemy_num
 	match condition:
 		0:#Walnut:Survival
+			Global.wave_num += 1
+			Global.wave_type = "walnut"
 			survival_timer.start()
 			wave_start.emit()
+			
 			if rand:
 				while survival_timer.time_left > 0:
 					spawn_timer.start()
@@ -40,6 +43,8 @@ func basic_wave(enemy_num:int, rand:bool, types:Array, condition:int, time:int, 
 			print("Wave Survived")
 		1:#Squash:Defeat all
 			Global.squash_wave = true
+			Global.wave_type = "squash"
+			Global.wave_num += 1
 			wave_start.emit()
 			
 			if rand: 

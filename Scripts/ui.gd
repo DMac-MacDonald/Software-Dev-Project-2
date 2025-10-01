@@ -48,7 +48,3 @@ func _on_charge_timer_timeout() -> void:
 func set_charge (val: bool):
 	if Global.charging != val:
 		Global.charging = val
-
-func wave_start_anim():
-	print("wave start animation")
-	wave_animations.play("WaveStart")

@@ -14,12 +14,13 @@ func _ready() -> void:
 	await animations.animation_finished
 	%WaveWaitTimer.start()
 	await %WaveWaitTimer.timeout
-	wave_manager_table.basic_wave(0,true,[],0,20,2)
+	wave_manager_table.basic_wave(0,true,[],0,10,2)
 	await wave_manager_table.wave_end
 	await %WaveWaitTimer.timeout
 	wave_manager_table.basic_wave(15,true,[],1,0,4)
 	await wave_manager_table.wave_end
 func _process(delta: float) -> void:
+	print(%Animations.assigned_animation)
 	%SubLabel.text = "Wave " + str(Global.wave_num) + " " + Global.wave_type
 	if Input.is_action_just_pressed("pause"):
 		var pause_menu = PAUSE.instantiate()
@@ -48,8 +49,8 @@ func _on_wave_manager_table_wave_start() -> void:
 
 
 func _on_wave_manager_table_wave_end() -> void:
-	animations.play("WaveEnd")
-	clear_table()
+	%Animations.play("WaveEnd")
+	
 	%WaveWaitTimer.start()
 
 func clear_table():

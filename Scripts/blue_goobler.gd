@@ -31,4 +31,13 @@ func _on_hit_area_area_entered(area: Area2D) -> void:
 			goobler_health -= (Global.damage + (Global.damage * -.1))
 		"brown":
 			goobler_health -= (Global.damage + (Global.damage * -.3))
-	
+func set_stat(type,num):
+	match type:
+		"size":
+			scale.x = num
+			scale.y = num
+		"health":
+			goobler_health = num
+			#health_bar.max_value = goobler_health
+		"speed":
+			speed = num

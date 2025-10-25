@@ -13,6 +13,7 @@ var upgrade_chosen = false
 @export var fruit_health = 100
 @export var width = .5
 @export var goobler_destination = Vector2(1349.0,1191.0)
+@export var goobler_base_size = 1
 @export var goobler_base_health = 100
 @export var goobler_speed = 120
 @export var goobler_damage = 20

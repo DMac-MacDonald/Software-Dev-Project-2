@@ -27,7 +27,7 @@ func basic_wave(enemy_num:int, rand:bool, types:Array, condition:int, time:int, 
 				while survival_timer.time_left > 0:
 					spawn_timer.start()
 					await spawn_timer.timeout
-					goobler_spawner.spawn_goobler(rand,0,1)
+					goobler_spawner.spawn_goobler(rand,0,1,0,0,0)
 					goobler_spawner.randomize_pos()
 			else:
 				var i = 0
@@ -36,7 +36,7 @@ func basic_wave(enemy_num:int, rand:bool, types:Array, condition:int, time:int, 
 						i=0
 					spawn_timer.start()
 					await spawn_timer.timeout
-					goobler_spawner.spawn_goobler(rand,types[0],1)
+					goobler_spawner.spawn_goobler(rand,types[0],1,0,0,0)
 					goobler_spawner.randomize_pos()
 					++i
 			wave_end.emit()
@@ -51,7 +51,7 @@ func basic_wave(enemy_num:int, rand:bool, types:Array, condition:int, time:int, 
 				while Global.enemy_num > 0:
 					spawn_timer.start()
 					await spawn_timer.timeout
-					goobler_spawner.spawn_goobler(rand,0,1)
+					goobler_spawner.spawn_goobler(rand,0,1,0,0,0)
 					goobler_spawner.randomize_pos()
 				
 								
@@ -64,14 +64,24 @@ func basic_wave(enemy_num:int, rand:bool, types:Array, condition:int, time:int, 
 						i=0
 					spawn_timer.start()
 					await spawn_timer.timeout
-					goobler_spawner.spawn_goobler(rand,types[i],1)
+					goobler_spawner.spawn_goobler(rand,types[i],1,0,0,0)
 					goobler_spawner.randomize_pos()
 					++i
 			Global.squash_wave = false
 			wave_end.emit()
-		2:#Dragonfruit:Boss
-			pass
 
+func boss_wave(rand:bool, dif_mult:float, type:int):
+	Global.wave_num += 1
+	Global.wave_type = "Dragonfruit"
+	Global.squash_wave = true
+	wave_start.emit()
+	if rand:
+		goobler_spawner.spawn_goobler(true,type,1,dif_mult,dif_mult,dif_mult)
+	else:
+		goobler_spawner.spawn_goobler(false,type,1,dif_mult,dif_mult,dif_mult)
+	Global.enemy_num = 1
+	await Global.goobler_die
+	wave_end.emit()
 func _process(delta: float) -> void:
 	Global.wave_time = survival_timer.time_left
 func _on_wave_end() -> void:

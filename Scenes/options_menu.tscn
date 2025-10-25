@@ -22,7 +22,7 @@ border_color = Color(0, 0, 0, 1)
 border_blend = true
 
 [node name="OptionsMenu" type="CanvasLayer"]
-process_mode = 2
+process_mode = 3
 layer = 2
 script = ExtResource("1_plplt")
 

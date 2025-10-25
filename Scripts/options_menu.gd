@@ -28,6 +28,6 @@ func _on_accessibility_settings_pressed() -> void:
 			n.queue_free()
 
 func _on_return_button_pressed() -> void:
-	if Global.paused:
-		Global.paused = false
+	#if Global.paused:
+		#Global.paused = false
 	queue_free()
